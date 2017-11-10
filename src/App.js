@@ -74,9 +74,14 @@ export default class App extends Component {
       })
     }
     inner()
-    .then(r => this.setState({
+    .then(r => {
+     if (typeof(r.data) === "object") {
+       r.data = JSON.stringify(r.data)
+     }
+     this.setState({
       responses: [...this.state.responses, r]
-    }))
+     })
+    })
     .catch(e => this.setState({
       responses: [...this.state.responses, e.response]
     }))
