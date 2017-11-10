@@ -1,0 +1,123 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-size: 18pt;
+}
+input {
+  height: 18pt;
+  font-size: 18pt;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
+}
+.flex {
+  display: flex;
+}
+.space-between {
+  justify-content: space-between;
+}
+
+.fill {
+  width: 100%;
+}
+
+.column {
+  width: 25%;
+  margin: 8px;
+}
+
+.line {
+  width: 100%;
+  margin: 4px 0px;
+  height: 4px;
+  background-color: #74b5ff;
+}
+
+button.plus {
+  outline: none;
+  border: none;
+  background-color: white;
+  color: #74b5ff;
+  font-size: 18pt;
+  width: 28px;
+  height: 28px;
+}
+
+button.plus:hover {
+  background-color: #74b5ff;
+  color: white;
+}
+
+button.plus:active {
+  background-color: #0067ce;
+  color: white;
+}
+
+button.String {
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #ffaf00;
+  font-size: 18pt;
+  width: 28px;
+  height: 28px;
+}
+
+button.String:hover {
+  color: white;
+  background-color: #ffaf00;
+}
+
+button.String:active {
+  color: white;
+  background-color: #a16e00;
+}
+
+button.Number {
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #01395e;
+  font-size: 18pt;
+  width: 28px;
+  height: 28px;
+}
+
+button.Number:hover {
+  color: white;
+  background-color: #001c2e;
+}
+
+button.Number:active {
+  color: white;
+  background-color: #001c2e;
+}
+
+.key {
+  width: 100%;
+  font-size: 18pt;
+  border: none;
+  outline: none;
+  background-color: white;
+  color: #01395e;
+  font-size: 18pt;
+  height: 28px;
+}
+
+.outline-grey {
+  outline: solid 1px grey;
+}
+
+.mute {
+  color: grey !important;
+}
+
+.method {
+  width: 100%;
+  height: 28px;
+  font-size: 18ptl
+}
