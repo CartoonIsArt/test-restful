@@ -27,9 +27,9 @@ export default class Response extends Component {
           { status }
         </button>
         { !isCollpased &&
-          <p>
+          <pre>
             { text }
-          </p>
+          </pre>
         }
       </div>
     )

@@ -10,7 +10,16 @@ export default class App extends Component {
       host: "http://localhost:3000/",
       target: '',
       args: [],
-      responses: []
+      responses: [
+        /* sample
+        {
+          id: 1,
+          data: JSON.stringify({a: 1}, null, 4),
+          status: 200,
+          statusText: "OK",
+        }
+        */
+      ]
     }
     this.requestId = 0
   }
@@ -78,7 +87,7 @@ export default class App extends Component {
     .then(r => {
       r.id = this.requestId
       if (typeof(r.data) === "object") {
-        r.data = JSON.stringify(r.data, null, 4)
+        r.data = JSON.stringify(r.data, null, 2)
       }
       this.setState({
        responses: [r, ...this.state.responses]
@@ -174,7 +183,7 @@ export default class App extends Component {
               <Response
                 key={ r.id } 
                 className={ 'status_' + Math.floor(r.status / 100) + 'XX' }
-                status={ r.status + r.statusText }
+                status={ r.status + ' ' + r.statusText }
                 text={ r.data }
               />
             )}

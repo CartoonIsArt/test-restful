@@ -4,6 +4,7 @@
 }
 body {
   font-size: 18pt;
+  font-family: 'Ubuntu', sans-serif;
 }
 input {
   height: 18pt;
@@ -180,4 +181,9 @@ button.Number:active {
   width: 100%;
   height: 28px;
   font-size: 18pt;
+}
+
+pre {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14pt;
 }
