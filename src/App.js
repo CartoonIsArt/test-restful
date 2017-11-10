@@ -40,6 +40,11 @@ export default class App extends Component {
     args[idx].value = value
     this.setState({ args })
   }
+  onDelete(idx) {
+    this.setState({
+      args: this.state.args.filter((e, i) => i !== idx)
+    })
+  }
   onKeyChange(value, idx) {
     let args = this.state.args
     args[idx].key = value
@@ -152,6 +157,7 @@ export default class App extends Component {
                   keyOfValue={ arg.key }
                   value={ arg.value }
                   onTypeBtnClick={() => this.onTypeBtnClick(idx)}
+                  onDelete={ () => this.onDelete(idx) }
                   onKeyChange={ value => this.onKeyChange(value, idx) }
                   onValueChange={ value => this.onValueChange(value, idx) }
                 />

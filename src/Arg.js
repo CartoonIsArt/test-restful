@@ -25,6 +25,7 @@ export default class Arg extends Component {
   render() {
     const {
       onTypeBtnClick,
+      onDelete,
       onKeyChange,
       onValueChange,
       type,
@@ -39,8 +40,7 @@ export default class Arg extends Component {
     return (
       <div>
         <div className="flex" style={{ margin: "4px 0px" }}>
-          <button onClick={ () => onTypeBtnClick() } className={ type } >
-          {
+          <button onClick={ () => onTypeBtnClick() } className={ type } > {
             type === "Number" ?
             0 :
             "S"
@@ -59,6 +59,9 @@ export default class Arg extends Component {
               { keyOfValue }
             </button>
           }
+          <button onClick={ () => onDelete() } className="plus" >
+          -
+          </button>
         </div>
         {onValueEdit ?
           <input 
