@@ -166,7 +166,7 @@ export default class App extends Component {
               Response
               <button 
                 onClick={ () => this.setState({responses: []}) }
-                className="clear" 
+                className="plus" 
                 > x </button>
             </div>
             <div className="line" />
