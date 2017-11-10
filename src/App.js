@@ -12,6 +12,7 @@ export default class App extends Component {
       args: [],
       responses: []
     }
+    this.requestId = 0
   }
   addArg() {
     this.setState({
@@ -75,6 +76,7 @@ export default class App extends Component {
     }
     inner()
     .then(r => {
+      r.id = this.requestId
       if (typeof(r.data) === "object") {
         r.data = JSON.stringify(r.data, null, 4)
       }
@@ -82,9 +84,13 @@ export default class App extends Component {
        responses: [r, ...this.state.responses]
       })
     })
-    .catch(e => this.setState({
+    .catch(e => {
+      e.response.id = this.requestId
+      this.setState({
       responses: [e.response, ...this.state.responses]
-    }))
+      })
+    })
+    this.requestId = this.requestId + 1
   }
   render() {
     const methods = [
