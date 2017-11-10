@@ -97,6 +97,15 @@ button.status_5XX:active {
   color: white;
 }
 
+button.clear {
+  outline: none;
+  border: none;
+  background-color: white;
+  color: #74b5ff;
+  font-size: 18pt;
+  width: 28px;
+  height: 28px;
+}
 button.plus {
   outline: none;
   border: none;

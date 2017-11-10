@@ -76,7 +76,7 @@ export default class App extends Component {
     inner()
     .then(r => {
       if (typeof(r.data) === "object") {
-        r.data = JSON.stringify(r.data)
+        r.data = JSON.stringify(r.data, null, 4)
       }
       this.setState({
        responses: [r, ...this.state.responses]
@@ -156,11 +156,17 @@ export default class App extends Component {
             )}
           </div>
           <div className="column" >
-            Response
+            <div className="flex space-between">
+              Response
+              <button 
+                onClick={ () => this.setState({responses: []}) }
+                className="clear" 
+                > x </button>
+            </div>
             <div className="line" />
             { responses.map( (r, idx) => 
               <Response
-                key={ idx }
+                key={ r.id } 
                 className={ 'status_' + Math.floor(r.status / 100) + 'XX' }
                 status={ r.status + r.statusText }
                 text={ r.data }
