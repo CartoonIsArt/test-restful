@@ -37,6 +37,66 @@ input {
   background-color: #74b5ff;
 }
 
+button.status_2XX {
+  outline: none;
+  border: none;
+  background-color: #6ead3a;
+  color: white;
+  font-size: 18pt;
+  width: 100%;
+  height: 28px;
+}
+
+button.status_2XX:hover {
+  background-color: #518820;
+  color: white;
+}
+
+button.status_2XX:active {
+  background-color: #3c6b0f;
+  color: white;
+}
+
+button.status_4XX {
+  outline: none;
+  border: none;
+  background-color: #fd4445;
+  color: white;
+  font-size: 18pt;
+  width: 100%;
+  height: 28px;
+}
+
+button.status_4XX:hover {
+  background-color: #c7282a;
+  color: white;
+}
+
+button.status_4XX:active {
+  background-color: #911012;
+  color: white;
+}
+
+button.status_5XX {
+  outline: none;
+  border: none;
+  background-color: #ffaf00;
+  color: white;
+  font-size: 18pt;
+  width: 100%;
+  height: 28px;
+}
+
+button.status_5XX:hover {
+  background-color: #b87d00;
+  color: white;
+}
+
+button.status_5XX:active {
+  background-color: #815800;
+  color: white;
+}
+
 button.plus {
   outline: none;
   border: none;
@@ -119,5 +179,5 @@ button.Number:active {
 .method {
   width: 100%;
   height: 28px;
-  font-size: 18ptl
+  font-size: 18pt;
 }

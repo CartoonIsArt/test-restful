@@ -10,11 +10,7 @@ export default class App extends Component {
       host: "http://localhost:3000/",
       target: '',
       args: [],
-      responses: [{
-        status: 200,
-        statusText: "OK",
-        data: {test: "test"}
-      }]
+      responses: []
     }
   }
   addArg() {
@@ -157,13 +153,14 @@ export default class App extends Component {
           <div className="column" >
             Response
             <div className="line" />
-            { responses.map( r => {
+            { responses.map( (r, idx) => 
               <Response
-                className={ 'status_' + r.status }
+                key={ idx }
+                className={ 'status_' + Math.floor(r.status / 100) + 'XX' }
                 status={ r.status + r.statusText }
                 text={ r.data }
               />
-            })}
+            )}
           </div>
         </div>
       </div>
