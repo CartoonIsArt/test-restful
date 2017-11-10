@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Arg from './Arg'
+import Response from './Response'
 
 export default class App extends Component {
   constructor(props) {
@@ -9,6 +10,11 @@ export default class App extends Component {
       host: "http://localhost:3000/",
       target: '',
       args: [],
+      responses: [{
+        status: 200,
+        statusText: "OK",
+        data: {test: "test"}
+      }]
     }
   }
   addArg() {
@@ -47,24 +53,37 @@ export default class App extends Component {
   }
   request(method) {
     let url = this.state.host + this.state.target
-    if (method === 'GET') {
-      if (this.state.args.length > 0) {
-        url = url + '?'
-        this.state.args.forEach(e => {
-          url = url + e.key + '=' + e.value + '&'
+    const inner = () => {
+      if (method === 'GET') {
+        if (this.state.args.length > 0) {
+          url = url + '?'
+          this.state.args.forEach(e => {
+            url = url + e.key + '=' + e.value + '&'
+          })
+        }
+        return axios(url)
+      }
+      else if (["POST", "PUT", "PATCH"].includes(method)) {
+        const data = this.keyValueToObject()
+        console.log(data)
+        return axios({
+          method,
+          url,
+          data,
         })
       }
-      axios(url)
-    }
-    else if (["POST", "PUT", "PATCH"].includes(method)) {
-      const data = this.keyValueToObject()
-      console.log(data)
-      axios({
+      return axios({
         method,
-        url,
-        data,
+        url
       })
     }
+    inner()
+    .then(r => this.setState({
+      responses: [...this.state.responses, r]
+    }))
+    .catch(e => this.setState({
+      responses: [...this.state.responses, e.response]
+    }))
   }
   render() {
     const methods = [
@@ -72,14 +91,14 @@ export default class App extends Component {
       "POST",
       "PUT",
       "DELETE",
-      "OPTIONS",
       "HEAD",
       "PATCH"
     ]
     const {
       host,
       target,
-      args
+      args,
+      responses
     } = this.state
     return (
       <div className="container">
@@ -138,6 +157,13 @@ export default class App extends Component {
           <div className="column" >
             Response
             <div className="line" />
+            { responses.map( r => {
+              <Response
+                className={ 'status_' + r.status }
+                status={ r.status + r.statusText }
+                text={ r.data }
+              />
+            })}
           </div>
         </div>
       </div>
