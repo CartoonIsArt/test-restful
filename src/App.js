@@ -58,7 +58,7 @@ export default class App extends Component {
   keyValueToObject() {
     let r = {}
     this.state.args.forEach(e => {
-      r[e.key] = e.value
+      r[e.key] = e.type === "Number" ? Number(e.value) : e.value
     })
     return r
   }
